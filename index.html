@@ -6,7 +6,7 @@
 <title>PCL</title>
 <meta name="description" content="PCL 的站點入口：生活筆記、配信感想、トワ様配信資料庫、ARK 全收集資料庫。">
 <meta property="og:title" content="PCL">
-<meta property="og:description" content="學習中｜生活筆記・配信感想・配信資料庫・ARK 全收集與全景">
+<meta property="og:description" content="學習中｜生活筆記・配信感想・配信資料庫・ARK 全收集資料庫">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://banner25387.github.io/">
 <link rel="icon" href="avatar.webp" type="image/webp">
@@ -198,19 +198,7 @@ footer a:hover { color: var(--accent); }
         </span>
         <span>
           <span class="name" data-i18n="n_ark">ARK 全收集資料庫</span>
-          <span class="desc" style="display:block" data-i18n="d_ark">今日要抓・地圖攻略・圖鑑進度</span>
-        </span>
-        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-      </a>
-    </li>
-    <li>
-      <a class="card" href="https://banner25387.github.io/ark-dashboard-live/wiki/island/">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
-        </span>
-        <span>
-          <span class="name" data-i18n="n_pano">ARK 全景</span>
-          <span class="desc" style="display:block" data-i18n="d_pano">地圖生物分布・攻略流程</span>
+          <span class="desc" style="display:block" data-i18n="d_ark">儀表板・全景・生物圖鑑</span>
         </span>
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
@@ -227,13 +215,11 @@ footer a:hover { color: var(--accent); }
     zh: { bio: "學習中", sec_write: "寫作", sec_db: "資料庫", sec_game: "遊戲",
           d_life: "生活與遊戲筆記・ARK 馴服紀錄", d_108: "直播心得・學習筆記",
           d_towa: "常闇トワ様直播資料庫", n_ark: "ARK 全收集資料庫",
-          d_ark: "今日要抓・地圖攻略・圖鑑進度", n_pano: "ARK 全景",
-          d_pano: "地圖生物分布・攻略流程", toggle: "日本語", html: "zh-Hant" },
+          d_ark: "儀表板・全景・生物圖鑑", toggle: "日本語", html: "zh-Hant" },
     ja: { bio: "勉強中", sec_write: "書きもの", sec_db: "データベース", sec_game: "ゲーム",
           d_life: "日々のメモ・ARK テイム記録", d_108: "配信の感想と学習メモ",
           d_towa: "常闇トワ様配信データベース", n_ark: "ARK 全収集データベース",
-          d_ark: "今日の目標・マップ攻略・図鑑", n_pano: "ARK 全景図",
-          d_pano: "マップ別の生物分布・攻略の流れ", toggle: "中文", html: "ja" }
+          d_ark: "ダッシュボード・全景図・生物図鑑", toggle: "中文", html: "ja" }
   };
   function get() { try { return localStorage.getItem("pcl_lang"); } catch (e) { return null; } }
   function set(v) { try { localStorage.setItem("pcl_lang", v); } catch (e) {} }
