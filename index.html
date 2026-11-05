@@ -53,6 +53,7 @@ body {
     linear-gradient(135deg, #7d2238 0%, #b23a55 45%, #d8738a 100%);
 }
 main {
+  position: relative;
   max-width: 560px;
   margin: -56px auto 0;
   padding: 0 16px 56px;
@@ -117,17 +118,34 @@ footer {
   font-size: 13px;
 }
 footer a { color: var(--muted); }
+.hero { position: relative; }
+.lang {
+  position: absolute; top: 14px; right: 16px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 999px;
+  background: rgba(20, 10, 15, .22);
+  color: #fff;
+  font: 500 13px/1.2 "Noto Sans JP", "Noto Sans TC", sans-serif;
+  letter-spacing: .04em;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background .15s ease;
+}
+.lang:hover, .lang:focus-visible { background: rgba(20, 10, 15, .42); outline: none; }
 footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
-<div class="hero" role="presentation"></div>
+<div class="hero">
+  <button type="button" id="lang-toggle" class="lang" aria-label="language">日本語</button>
+</div>
 <main>
   <img class="avatar" src="avatar.webp" width="96" height="96" alt="PCL">
   <h1>PCL</h1>
-  <p class="bio">學習中</p>
+  <p class="bio" data-i18n="bio">學習中</p>
 
-  <p class="section-label">寫作</p>
+  <p class="section-label" data-i18n="sec_write">寫作</p>
   <ul>
     <li>
       <a class="card" href="https://banner25387.github.io/PCL-life/">
@@ -136,7 +154,7 @@ footer a:hover { color: var(--accent); }
         </span>
         <span>
           <span class="name">PCL-life</span>
-          <span class="desc" style="display:block">生活與遊戲筆記・<span lang="ja">ARK テイム記録</span></span>
+          <span class="desc" style="display:block" data-i18n="d_life">生活與遊戲筆記・ARK 馴服紀錄</span>
         </span>
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
@@ -148,14 +166,14 @@ footer a:hover { color: var(--accent); }
         </span>
         <span>
           <span class="name">PCL-10583108</span>
-          <span class="desc" style="display:block"><span lang="ja">配信の感想と学習メモ</span>・直播心得</span>
+          <span class="desc" style="display:block" data-i18n="d_108">直播心得・學習筆記</span>
         </span>
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
     </li>
     </ul>
 
-  <p class="section-label">資料庫</p>
+  <p class="section-label" data-i18n="sec_db">資料庫</p>
   <ul>
     <li>
       <a class="card" href="https://banner25387.github.io/towasama-wiki/">
@@ -164,14 +182,14 @@ footer a:hover { color: var(--accent); }
         </span>
         <span>
           <span class="name">towasama-wiki</span>
-          <span class="desc" style="display:block"><span lang="ja">常闇トワ様配信データベース</span></span>
+          <span class="desc" style="display:block" data-i18n="d_towa">常闇トワ様直播資料庫</span>
         </span>
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
     </li>
     </ul>
 
-  <p class="section-label">遊戲</p>
+  <p class="section-label" data-i18n="sec_game">遊戲</p>
   <ul>
     <li>
       <a class="card" href="https://banner25387.github.io/ark-dashboard-live/">
@@ -179,8 +197,8 @@ footer a:hover { color: var(--accent); }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>
         </span>
         <span>
-          <span class="name">ARK 全收集資料庫</span>
-          <span class="desc" style="display:block">今日要抓・地圖攻略・圖鑑進度</span>
+          <span class="name" data-i18n="n_ark">ARK 全收集資料庫</span>
+          <span class="desc" style="display:block" data-i18n="d_ark">今日要抓・地圖攻略・圖鑑進度</span>
         </span>
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
@@ -191,8 +209,8 @@ footer a:hover { color: var(--accent); }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
         </span>
         <span>
-          <span class="name">ARK 全景</span>
-          <span class="desc" style="display:block">地圖生物分布・攻略流程・<span lang="ja">全景図</span></span>
+          <span class="name" data-i18n="n_pano">ARK 全景</span>
+          <span class="desc" style="display:block" data-i18n="d_pano">地圖生物分布・攻略流程</span>
         </span>
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
@@ -203,5 +221,44 @@ footer a:hover { color: var(--accent); }
     <a href="https://bsky.app/profile/pcl25387.bsky.social">Bluesky</a>
   </footer>
 </main>
+<script>
+(function () {
+  var T = {
+    zh: { bio: "學習中", sec_write: "寫作", sec_db: "資料庫", sec_game: "遊戲",
+          d_life: "生活與遊戲筆記・ARK 馴服紀錄", d_108: "直播心得・學習筆記",
+          d_towa: "常闇トワ様直播資料庫", n_ark: "ARK 全收集資料庫",
+          d_ark: "今日要抓・地圖攻略・圖鑑進度", n_pano: "ARK 全景",
+          d_pano: "地圖生物分布・攻略流程", toggle: "日本語", html: "zh-Hant" },
+    ja: { bio: "勉強中", sec_write: "書きもの", sec_db: "データベース", sec_game: "ゲーム",
+          d_life: "日々のメモ・ARK テイム記録", d_108: "配信の感想と学習メモ",
+          d_towa: "常闇トワ様配信データベース", n_ark: "ARK 全収集データベース",
+          d_ark: "今日の目標・マップ攻略・図鑑", n_pano: "ARK 全景図",
+          d_pano: "マップ別の生物分布・攻略の流れ", toggle: "中文", html: "ja" }
+  };
+  function get() { try { return localStorage.getItem("pcl_lang"); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem("pcl_lang", v); } catch (e) {} }
+  var lang = get();
+  if (lang !== "zh" && lang !== "ja") {
+    lang = /^ja/i.test(navigator.language || "") ? "ja" : "zh";
+  }
+  var btn = document.getElementById("lang-toggle");
+  function apply() {
+    var d = T[lang];
+    document.documentElement.lang = d.html;
+    var els = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute("data-i18n");
+      if (d[k]) els[i].textContent = d[k];
+    }
+    btn.textContent = d.toggle;
+  }
+  btn.addEventListener("click", function () {
+    lang = lang === "zh" ? "ja" : "zh";
+    set(lang);
+    apply();
+  });
+  apply();
+})();
+</script>
 </body>
 </html>
